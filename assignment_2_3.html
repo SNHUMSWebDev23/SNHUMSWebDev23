@@ -1,0 +1,71 @@
+<!----------------------------------------------------------------|
+| School: Southern New Hampshire University                       |       
+| Student: Aaron Wilson                                           |
+| Student ID: 2259696                                             |
+| Degree Program: MS IT / Web Development                         |
+| Course: IT-505-Q3534 Core Technologies 22TW3                    |
+| Instructor: David Numme                                         |
+| Module: Two                                                     |
+| Assignment: 2-3 Final Project Milestone One: Programming Report |
+| Date: January 12, 2022                                          |
+|----------------------------------------------------------------->
+
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1 id="titleHeader">ACME EMPLOYEE PORTAL</h1>
+        <form>
+            <h3>Please login with your employee name and group number:</h3>
+            <div class="inputControl">
+              <label>Name:</label>
+              <input id="nameInput" type="text" name="name"placeholder="name"/>
+            </div>
+            <div class="inputControl">
+              <label>Group:</label>
+              <input id="groupInput" type="text" name="group"placeholder="#"/>
+            </div>
+            <div class="formControl">
+              <button id="submitBtn" type="submit">Submit</button>
+            </div>
+        </form>
+        <div id="dataOutput"></div>
+        <script type="text/javascript">
+        /********************************************************************************
+        * Below this line is all the original code.                                     *
+        * I hope you are ok that I updated the (var) key word to (const) and (let) to   *
+        * reflect ES6 standards. I probably went beyond the scope of this assignment.   *
+        * but I see it as an opportunity to further practice skills I do know while in  *
+        * a learning enviroment.                                                        *
+        ********************************************************************************/
+        const onSubmit = (e) => {
+          // This prevents the browser from performing a...
+          e.preventDefault();
+          const { name, groupNumber } = e.target.value;
+          const today = new Date();
+          // I converted this variable to the (let) key word so it can be mutated
+          let UpgradeDay = new Date('May 1, 2022');
+          // I created a group object to account for the 5 groups
+          const group = {
+              // I added five (5) properties, each housing a mutation of the UpgradeDay variable
+              1: UpgradeDay = new Date('May 1, 2022'),
+              2: UpgradeDay = new Date('May 3, 2022'),
+              3: UpgradeDay = new Date('May 6, 2022'),
+              4: UpgradeDay = new Date('May 9, 2022'),
+              5: UpgradeDay = new Date('May 11, 2022')
+          };
+
+          const calculateUpgradeDay = (day) => {
+
+            const msPerDay = 24 * 60 * 60 * 1000 ;
+            const timeLeft = (day.getTime() - today.getTime());
+            const days = timeLeft / msPerDay;
+            const daysLeft = Math.floor(days);
+          
+            // I added the key variables using string interpolation
+            return document.getElementById('dataOutput').innerHTML = `
+            <br/><br/>Hi There are only<BR> <H4>${daysLeft} days</H4> Until Your Computer receives its Upgrade<P>
+          `;
+        }
+        </script>
+    </body>
+</html> 
