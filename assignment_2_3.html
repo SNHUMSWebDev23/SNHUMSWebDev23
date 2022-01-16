@@ -18,11 +18,11 @@
             <h3>Please login with your employee name and group number:</h3>
             <div class="inputControl">
               <label>Name:</label>
-              <input id="nameInput" type="text" name="name"placeholder="name"/>
+              <input id="nameInput" type="text" name="name" placeholder="name"/>
             </div>
             <div class="inputControl">
               <label>Group:</label>
-              <input id="groupInput" type="text" name="group"placeholder="#"/>
+              <input id="groupInput" type="text" name="groupNumber" placeholder="#"/>
             </div>
             <div class="formControl">
               <button id="submitBtn" type="submit">Submit</button>
@@ -41,21 +41,21 @@
           // This prevents the browser from performing a...
           e.preventDefault();
           const { name, groupNumber } = e.target.value;
-          const today = new Date();
-          // I converted this variable to the (let) key word so it can be mutated
-          let UpgradeDay = new Date('May 1, 2022');
-          // I created a group object to account for the 5 groups
-          const group = {
-              // I added five (5) properties, each housing a mutation of the UpgradeDay variable
-              1: UpgradeDay = new Date('May 1, 2022'),
-              2: UpgradeDay = new Date('May 3, 2022'),
-              3: UpgradeDay = new Date('May 6, 2022'),
-              4: UpgradeDay = new Date('May 9, 2022'),
-              5: UpgradeDay = new Date('May 11, 2022')
-          };
-
+          //
+          const defaultDay = null;
+          //
           const calculateUpgradeDay = (day) => {
-
+            // I created a group object to account for the 5 groups
+            const group = {
+              // I added five (5) properties, each housing a mutation of the UpgradeDay variable
+              1: day = new Date('May 1, 2022'),
+              2: day = new Date('May 3, 2022'),
+              3: day = new Date('May 6, 2022'),
+              4: day = new Date('May 9, 2022'),
+              5: day = new Date('May 11, 2022')
+            };
+            //
+            const today = new Date();
             const msPerDay = 24 * 60 * 60 * 1000 ;
             const timeLeft = (day.getTime() - today.getTime());
             const days = timeLeft / msPerDay;
